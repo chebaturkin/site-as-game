@@ -36,14 +36,18 @@ def exercise(page, viewport):
         page.wait_for_timeout(250)
         after = page.evaluate("() => JSON.parse(localStorage.getItem('room-room-project-v2')).rooms[0].position")
         assert after != before
-        page.locator('[data-map-room="n1"]').press("ArrowRight")
-        page.wait_for_timeout(100)
+        page.locator('[data-map-room="n1"]').click()
+        page.wait_for_timeout(250)
+        page.locator('[data-map-room="n1"]').press("ArrowLeft")
+        page.wait_for_timeout(250)
         after_keyboard = page.evaluate("() => JSON.parse(localStorage.getItem('room-room-project-v2')).rooms[0].position")
-        assert after_keyboard["x"] > after["x"]
+        assert after_keyboard["x"] < after["x"]
         page.locator("#undoAction").click()
+        page.wait_for_timeout(250)
         restored = page.evaluate("() => JSON.parse(localStorage.getItem('room-room-project-v2')).rooms[0].position")
         assert restored == after
         page.locator("#redoAction").click()
+        page.wait_for_timeout(250)
         redone = page.evaluate("() => JSON.parse(localStorage.getItem('room-room-project-v2')).rooms[0].position")
         assert redone == after_keyboard
 

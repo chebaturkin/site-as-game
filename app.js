@@ -428,7 +428,16 @@
       state.mapDrag = null;
       $('mapSvg')?.classList.remove('is-dragging');
       q('[data-map-room].is-dragging').forEach((node) => node.classList.remove('is-dragging'));
-      if (moved && room) { state.mapDragSuppressClick = true; state.project = normalizeProject(state.project); scheduleSave(); renderMap(); announce('позиция комнаты сохранена'); }
+      if (moved && room) {
+        state.mapDragSuppressClick = true;
+        state.project = normalizeProject(state.project);
+        scheduleSave();
+        renderMap();
+        const movedNode = [...($('mapSvg')?.querySelectorAll('[data-map-room]') || [])].find((node) => node.dataset.mapRoom === room.id);
+        movedNode?.focus();
+        updateActionAvailability();
+        announce('позиция комнаты сохранена');
+      }
     };
     $('mapSvg')?.addEventListener('pointerup', finishMapDrag); $('mapSvg')?.addEventListener('pointercancel', finishMapDrag); $('mapSvg')?.addEventListener('lostpointercapture', finishMapDrag);
     $('mapSvg')?.addEventListener('keydown', (event) => {
@@ -440,7 +449,7 @@
       event.preventDefault();
       const room = state.project.rooms.find((candidate) => candidate.id === node.dataset.mapRoom);
       if (!room) return;
-      recordHistory(); room.position = { x: clamp((room.position?.x || 50) + direction[0], 4, 96), y: clamp((room.position?.y || 50) + direction[1], 8, 92) }; state.project = normalizeProject(state.project); scheduleSave(); renderMap(); node.focus(); announce('позиция комнаты сохранена');
+      recordHistory(); room.position = { x: clamp((room.position?.x || 50) + direction[0], 4, 96), y: clamp((room.position?.y || 50) + direction[1], 8, 92) }; state.project = normalizeProject(state.project); scheduleSave(); renderMap(); updateActionAvailability(); const movedNode = [...($('mapSvg')?.querySelectorAll('[data-map-room]') || [])].find((candidate) => candidate.dataset.mapRoom === room.id); movedNode?.focus(); announce('позиция комнаты сохранена');
     });
     $('roomTitle')?.addEventListener('input', (event) => { if (state.roomHistoryCapturedId !== currentRoom().id) { recordHistory(); state.roomHistoryCapturedId = currentRoom().id; } currentRoom().title = event.target.value; scheduleSave(); renderRoomList(); renderMap(); renderValidation(); }); $('roomTitle')?.addEventListener('blur', () => { state.roomHistoryCapturedId = null; });
     $('roomBody')?.addEventListener('input', (event) => { if (state.roomHistoryCapturedId !== currentRoom().id) { recordHistory(); state.roomHistoryCapturedId = currentRoom().id; } currentRoom().body = event.target.value; scheduleSave(); }); $('roomBody')?.addEventListener('blur', () => { state.roomHistoryCapturedId = null; });

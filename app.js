@@ -191,6 +191,7 @@
   function recordHistory() {
     if (state.historyMute) return;
     state.historyPast.push(capture()); if (state.historyPast.length > state.maxHistory) state.historyPast.shift(); state.historyFuture = [];
+    updateActionAvailability();
   }
   function undo() { if (!state.historyPast.length) return announce('нечего отменять'); const previous = state.historyPast.pop(); state.historyFuture.push(capture()); restore(previous); announce('изменение отменено'); }
   function redo() { if (!state.historyFuture.length) return announce('нечего повторять'); const next = state.historyFuture.pop(); state.historyPast.push(capture()); restore(next); announce('изменение возвращено'); }

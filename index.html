@@ -3,42 +3,90 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>room / room — редактор маршрутов</title>
+  <title>room room · истории из комнат</title>
+  <meta name="description" content="соберите историю, экскурсию или небольшой квест из комнат. добавьте текст и двери, пройдите маршрут и скачайте готовый сайт." />
+  <meta name="theme-color" content="#f5f3ea" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <svg class="artwork-library" width="0" height="0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="art-night" viewBox="0 0 640 320">
+        <rect width="640" height="320" fill="#233f42"/>
+        <circle cx="497" cy="65" r="28" fill="#e8d29c"/>
+        <path d="M0 236 640 209V320H0Z" fill="#1b3032"/>
+        <path d="M59 235V70H188V224M480 216V124H605V214" fill="#2f5052"/>
+        <path d="M81 105H104V138H81ZM132 105H155V138H132ZM81 162H104V195H81ZM504 153H530V184H504Z" fill="#d4bd80"/>
+        <path d="M205 242 350 129 498 250Z" fill="#e6c981" opacity=".22"/>
+        <path d="M344 246V122M327 246H363" stroke="#e2cd99" stroke-width="5"/>
+        <path d="M323 101H366L359 131H330Z" fill="#e8d29c"/>
+        <path d="M339 101V86H350V101" fill="#e8d29c"/>
+        <path d="M226 272 456 272M282 288H399M306 303H372" stroke="#aa9b70" stroke-width="3" opacity=".55"/>
+        <path d="M410 228V156A30 30 0 0 1 470 156V221" fill="#132a2d" stroke="#77928b" stroke-width="2"/>
+        <circle cx="456" cy="192" r="3" fill="#e8d29c"/>
+        <path d="M25 23H54M25 23V52M615 297H586M615 297V268" fill="none" stroke="#8fa59b" stroke-width="2"/>
+      </symbol>
+      <symbol id="art-museum" viewBox="0 0 640 320">
+        <rect width="640" height="320" fill="#ead8bf"/>
+        <circle cx="501" cy="76" r="43" fill="#c58d54"/>
+        <path d="M0 256 640 235V320H0Z" fill="#d6b99b"/>
+        <path d="M75 251V110A86 86 0 0 1 247 110V246" fill="#a15e46"/>
+        <path d="M111 249V111A50 50 0 0 1 211 111V247" fill="#503f35"/>
+        <path d="M291 246V55H309V246M443 241V55H461V241M284 49H469V66H284ZM280 242H473V255H280Z" fill="#f8eedc"/>
+        <rect x="334" y="96" width="80" height="96" fill="#a15e46"/>
+        <rect x="342" y="104" width="64" height="80" fill="#e8cba3"/>
+        <path d="M352 171 369 128 396 171Z" fill="#657560"/>
+        <circle cx="385" cy="121" r="7" fill="#a15e46"/>
+        <path d="M524 245V217H576V244ZM530 217V210H570V217Z" fill="#f8eedc"/>
+        <path d="M549 210C523 186 539 162 551 165C567 164 582 188 549 210Z" fill="#a15e46"/>
+        <path d="M142 286H320M348 281H495M172 301H258" stroke="#b7997e" stroke-width="2"/>
+        <path d="M25 23H54M25 23V52M615 297H586M615 297V268" fill="none" stroke="#a15e46" stroke-width="2"/>
+      </symbol>
+      <symbol id="art-notes" viewBox="0 0 640 320">
+        <rect width="640" height="320" fill="#c6d5bd"/>
+        <path d="M0 267 640 243V320H0Z" fill="#b5c6ae"/>
+        <g transform="rotate(-9 211 169)"><rect x="110" y="64" width="183" height="207" fill="#83967e" opacity=".28"/><rect x="101" y="55" width="183" height="207" fill="#f7f0df"/><path d="M124 83H218M124 98H259M124 113H240M124 135H188" stroke="#9aab8f" stroke-width="3"/><path d="M127 224 148 172 198 188 222 153 259 177" fill="none" stroke="#83967e" stroke-width="2"/><circle cx="222" cy="153" r="5" fill="#b45b43"/></g>
+        <g transform="rotate(7 433 179)"><rect x="327" y="102" width="195" height="147" fill="#83967e" opacity=".28"/><rect x="319" y="94" width="195" height="147" fill="#e2ca9e"/><path d="M319 94 416 173 514 94M319 241 380 171M514 241 453 171" fill="none" stroke="#b69b6e" stroke-width="2"/></g>
+        <path d="M224 153C312 123 283 277 370 271S474 165 564 207" fill="none" stroke="#b45b43" stroke-width="3"/>
+        <circle cx="554" cy="71" r="19" fill="none" stroke="#4e6552" stroke-width="5"/><path d="M540 85 515 110M525 100 533 108" stroke="#4e6552" stroke-width="5"/>
+        <path d="M25 23H54M25 23V52M615 297H586M615 297V268" fill="none" stroke="#6e826c" stroke-width="2"/>
+      </symbol>
+    </defs>
+  </svg>
   <div class="app-shell" id="appShell">
     <a class="skip-link" href="#mainContent">перейти к редактору</a>
     <header class="topbar">
-      <div class="brand-lockup" aria-label="Room Room">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M5 5h10v10H5zM17 17h10v10H17z"/><path d="M15 10h5M22 15v2"/><circle cx="10" cy="10" r="1.5"/></svg></span>
-        <span class="brand-name">ROOM / ROOM</span>
+      <div class="brand-lockup" aria-label="room room">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M7 37V13h24v38H7V37Zm26-10h24v24H33"/><path d="M15 45V22h10v23M40 45V34h10v11M25 33h15m-5-5 5 5-5 5"/><circle cx="21" cy="34" r="1.3"/></svg></span>
+        <span class="brand-name">room room<small>истории из комнат</small></span>
       </div>
       <div class="project-heading">
+        <label class="project-label" for="projectTitle">ваш маршрут</label>
         <input id="projectTitle" class="project-title-input" type="text" value="ночной маршрут" autocomplete="off" aria-label="название маршрута" />
       </div>
       <div class="top-actions">
         <div class="mode-switch" role="group" aria-label="режим работы">
           <button class="mode-button is-active" data-mode="edit" type="button">редактор</button>
-          <button class="mode-button" data-mode="play" type="button">играть</button>
+          <button class="mode-button" data-mode="play" type="button"><span aria-hidden="true">▷</span> играть</button>
         </div>
         <button class="quiet-button" id="resetProgress" type="button">сбросить прогресс</button>
-        <button class="export-button" id="exportZip" type="button"><span aria-hidden="true">↓</span> скачать ZIP</button>
+        <button class="export-button" id="exportZip" type="button"><span aria-hidden="true">↓</span> скачать сайт</button>
       </div>
     </header>
 
     <main id="mainContent" tabindex="-1">
       <section class="welcome-strip" aria-labelledby="welcomeTitle">
-        <div><h1 id="welcomeTitle">соберите короткий мир из комнат</h1></div>
-        <p class="welcome-note">выберите основу, добавьте переходы и проверьте маршрут до публикации. изменения сохраняются в браузере.</p>
+        <div class="welcome-copy"><span class="eyebrow">маленький сайт с собственной историей</span><h1 id="welcomeTitle">история, в которую<br />можно войти.</h1></div>
+        <div class="welcome-aside"><p class="welcome-note">соберите квест, экскурсию или прогулку из комнат. в каждой свой текст, картинка и двери, за которыми история продолжается.</p><button id="tryRoute" class="route-link" type="button">пройти маршрут <span aria-hidden="true">↗</span></button></div>
       </section>
 
       <section class="project-toolbar" aria-label="файл проекта и история изменений">
         <div class="project-toolbar-actions">
           <button class="text-button tool-button" id="newProject" type="button">новый маршрут</button>
-          <button class="text-button tool-button" id="openProject" type="button">открыть JSON</button>
+          <button class="text-button tool-button" id="openProject" type="button">открыть json</button>
           <input id="projectFile" class="visually-hidden" type="file" accept="application/json,.json" />
-          <button class="text-button tool-button" id="saveJson" type="button">сохранить JSON</button>
+          <button class="text-button tool-button" id="saveJson" type="button">сохранить json</button>
           <span class="toolbar-divider" aria-hidden="true"></span>
           <button class="text-button tool-button" id="undoAction" type="button" disabled>отменить</button>
           <button class="text-button tool-button" id="redoAction" type="button" disabled>повторить</button>
@@ -53,23 +101,20 @@
 
       <section class="template-strip" aria-labelledby="templatesTitle">
         <div class="section-caption">
-            <h2 id="templatesTitle">шаблоны</h2>
+            <h2 id="templatesTitle">с чего начнём?</h2><span>выберите основу и расскажите свою историю</span>
         </div>
         <div class="template-grid" id="templateGrid">
           <button class="template-card is-selected" data-template="night" type="button">
-            <strong>ночной маршрут</strong>
-            <span>окна, мокрый асфальт, тихий обход.</span>
-            <i class="template-swatch swatch-night" aria-hidden="true"></i>
+            <svg class="template-art" viewBox="0 0 640 320" aria-hidden="true" focusable="false"><use href="#art-night"/></svg>
+            <span class="template-copy"><small>01 · прогулка</small><strong>ночной маршрут</strong><span>свет в окнах и город после дождя.</span></span><span class="template-check" aria-hidden="true">↗</span>
           </button>
           <button class="template-card" data-template="museum" type="button">
-            <strong>музейный тур</strong>
-            <span>залы, подписи, вещи с историей.</span>
-            <i class="template-swatch swatch-museum" aria-hidden="true"></i>
+            <svg class="template-art" viewBox="0 0 640 320" aria-hidden="true" focusable="false"><use href="#art-museum"/></svg>
+            <span class="template-copy"><small>02 · экскурсия</small><strong>музейный тур</strong><span>маленькие вещи с большой историей.</span></span><span class="template-check" aria-hidden="true">↗</span>
           </button>
           <button class="template-card" data-template="notes" type="button">
-            <strong>квест из заметок</strong>
-            <span>следы, вырезки и один найденный ключ.</span>
-            <i class="template-swatch swatch-notes" aria-hidden="true"></i>
+            <svg class="template-art" viewBox="0 0 640 320" aria-hidden="true" focusable="false"><use href="#art-notes"/></svg>
+            <span class="template-copy"><small>03 · квест</small><strong>квест из заметок</strong><span>конверт, несколько следов и один ключ.</span></span><span class="template-check" aria-hidden="true">↗</span>
           </button>
         </div>
       </section>
@@ -86,19 +131,19 @@
             <div><h2>комнаты</h2></div>
             <span class="counter" id="roomCount">3 комнаты</span>
           </div>
-          <p class="panel-intro">комната — точка маршрута. выберите её, чтобы изменить текст, изображение и двери.</p>
+          <p class="panel-intro">выберите комнату, чтобы рассказать, что происходит внутри.</p>
           <ol class="room-list" id="roomList"></ol>
           <button class="add-room-button" id="addRoom" type="button"><span aria-hidden="true">＋</span> добавить комнату</button>
-          <div class="index-note"><span>сохраняется автоматически</span></div>
+          <div class="index-note"><span class="save-dot" aria-hidden="true"></span><span>сохраняется в вашем браузере</span></div>
         </aside>
 
         <section id="mapPanel" class="map-panel desk-panel" data-panel="map" role="tabpanel" aria-labelledby="mapTab" tabindex="-1">
           <div class="panel-heading map-heading">
             <div><h2 id="mapTitle">карта маршрута</h2></div>
-            <div class="map-legend"><span class="legend-line" aria-hidden="true"></span> переход <span class="legend-dot" aria-hidden="true"></span> старт <span class="map-tip">перетащите комнату · стрелки — точная настройка</span></div>
+            <div class="map-legend"><span class="legend-line" aria-hidden="true"></span> дверь <span class="legend-dot" aria-hidden="true"></span> старт</div>
           </div>
           <div class="map-board" id="mapBoard">
-            <svg class="map-svg" id="mapSvg" viewBox="0 0 800 470" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="mapTitle mapDescription">
+            <svg class="map-svg" id="mapSvg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="mapTitle mapDescription">
               <desc id="mapDescription">схема комнат и переходов проекта</desc>
               <defs><marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" /></marker></defs>
               <g id="mapGrid" aria-hidden="true"></g>
@@ -106,7 +151,12 @@
               <g id="mapNodes"></g>
             </svg>
             <div class="map-empty" id="mapEmpty" hidden>добавьте ещё комнату, чтобы увидеть маршрут.</div>
+            <span class="map-board-note">перетаскивайте комнаты · двигайте стрелками на клавиатуре</span>
           </div>
+          <article class="room-preview" aria-labelledby="previewTitle">
+            <div class="preview-image" id="previewImage" aria-hidden="true"></div>
+            <div class="preview-copy"><span class="eyebrow">так выглядит выбранная комната</span><h3 id="previewTitle"></h3><p id="previewBody"></p><button id="previewPlay" class="route-link" type="button">войти в комнату <span aria-hidden="true">↗</span></button></div>
+          </article>
           <div class="map-fallback" aria-live="polite">
             <span class="map-fallback-title">список маршрута</span>
             <ol id="mapFallbackList"></ol>
@@ -119,7 +169,7 @@
             <div class="inspector-actions">
               <button class="text-button" id="makeStart" type="button">сделать стартом</button>
               <button class="text-button" id="duplicateRoom" type="button">дублировать</button>
-              <button class="text-button" id="playFromRoom" type="button">проверить отсюда</button>
+              <button class="text-button" id="playFromRoom" type="button">▷ проверить</button>
               <button class="icon-button" id="deleteRoom" type="button" aria-label="удалить текущую комнату" title="удалить комнату">×</button>
             </div>
           </div>
@@ -131,15 +181,16 @@
             </div>
             <div class="field-group">
               <label class="field-label" for="roomBody">описание</label>
-              <textarea class="text-input textarea" id="roomBody" rows="7"></textarea>
-              <span class="field-hint">один короткий абзац. переносы сохраняются.</span>
+              <textarea class="text-input textarea" id="roomBody" rows="5"></textarea>
+              <span class="field-hint">что увидит и почувствует посетитель?</span>
             </div>
             <div class="field-group">
               <label class="field-label" for="roomImage">изображение</label>
-              <label class="file-drop" for="roomImage"><span class="file-drop-icon" aria-hidden="true">＋</span><span><strong>загрузить изображение</strong><small>только локально · JPG, PNG, WebP до 8 мб</small></span></label>
+              <label class="file-drop" for="roomImage"><span class="file-drop-icon" aria-hidden="true">＋</span><span><strong>добавить свою картинку</strong><small>jpg, png, webp · до 8 мб</small></span></label>
               <input id="roomImage" class="visually-hidden" type="file" accept="image/jpeg,image/png,image/webp" />
               <div class="image-meta" id="imageMeta" hidden><span id="imageName"></span><button type="button" id="removeImage">убрать</button></div>
-              <label class="field-label" for="roomAlt">подпись для доступности</label>
+              <p class="field-hint image-hint">без загрузки используем иллюстрацию шаблона.</p>
+              <label class="field-label" for="roomAlt">описание картинки</label>
               <input class="text-input" id="roomAlt" type="text" placeholder="что изображено?" autocomplete="off" />
             </div>
             <div class="field-group flag-section">
@@ -163,13 +214,13 @@
           <button class="text-button" id="playReset" type="button">начать заново</button>
         </div>
         <div class="play-layout">
-          <aside class="play-index" aria-label="прогресс игры"><strong id="playProgress">01 / 03</strong><div class="play-progress-line"><span id="playProgressBar"></span></div><ol id="playRoomList"></ol></aside>
+          <aside class="play-index" aria-label="прогресс игры"><span class="eyebrow">ваша прогулка</span><strong id="playProgress">01 из 03</strong><div class="play-progress-line"><span id="playProgressBar"></span></div><ol id="playRoomList"></ol><p class="play-index-note">каждая дверь<br />продолжает историю.</p></aside>
         <article class="room-scene" id="roomScene" tabindex="-1" aria-labelledby="sceneTitle">
             <div class="scene-paper" id="scenePaper">
-              <div class="scene-meta"><span id="sceneRoomNo">01</span><span id="sceneCoords">X 24° / Y 61°</span></div>
-              <div class="scene-image" id="sceneImage" role="img" aria-label=""></div>
+              <div class="scene-meta"><span>комната <span id="sceneRoomNo">01</span></span><span id="sceneCoords">x 24° · y 61°</span></div>
+              <div class="scene-image" id="sceneImage"></div>
             <div class="scene-copy"><h2 id="sceneTitle">переулок после дождя</h2><p id="sceneBody"></p></div>
-              <div class="scene-mark" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M5 5h10v10H5zM17 17h10v10H17z"/><path d="M15 10h5M22 15v2"/><circle cx="10" cy="10" r="1.5"/></svg></div>
+              <div class="scene-mark" aria-hidden="true">room room</div>
             </div>
             <div class="scene-actions" id="sceneActions"></div>
             <p class="scene-hint" id="sceneHint">выберите действие. прогресс сохраняется в этом браузере.</p>
@@ -182,6 +233,7 @@
         </div>
       </section>
     </main>
+    <footer class="app-footer"><span>room room · маленькие миры, которые можно пройти</span><a href="https://github.com/chebaturkin/site-as-game" target="_blank" rel="noopener noreferrer">проект на github ↗</a></footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </div>
   <script src="app.js"></script>

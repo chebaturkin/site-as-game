@@ -14,7 +14,7 @@ def exercise(page, viewport):
     page.evaluate("localStorage.clear()")
     page.reload(wait_until="networkidle")
 
-    assert page.locator("#welcomeTitle").inner_text() == "соберите короткий мир из комнат"
+    assert page.locator("#welcomeTitle").inner_text() == "история, в которую\nможно войти."
     assert page.locator("#projectMetrics").inner_text().startswith("3 комнаты")
     assert page.locator("#templateGrid [data-template]").count() == 3
     assert page.locator("#roomList .room-button").count() == 3
@@ -67,10 +67,10 @@ def exercise(page, viewport):
 
     page.locator('[data-mode="play"]').click()
     assert page.locator("#playView").is_visible()
-    assert page.locator("#playProgress").inner_text().startswith("01 /")
+    assert page.locator("#playProgress").inner_text().startswith("01 из")
     assert "#/play/" in page.url
     page.locator("#playReset").click()
-    assert page.locator("#playProgress").inner_text().startswith("01 /")
+    assert page.locator("#playProgress").inner_text().startswith("01 из")
     page.locator("#backToMap").click()
 
     with page.expect_download() as download_info:
@@ -96,7 +96,7 @@ def main():
         mobile = browser.new_page(viewport={"width": 390, "height": 844})
         mobile.goto(f"{BASE_URL}/#/edit", wait_until="networkidle")
         assert mobile.evaluate("() => document.documentElement.scrollWidth <= window.innerWidth")
-        assert mobile.locator("#welcomeTitle").inner_text() == "соберите короткий мир из комнат"
+        assert mobile.locator("#welcomeTitle").inner_text() == "история, в которую\nможно войти."
         browser.close()
 
 

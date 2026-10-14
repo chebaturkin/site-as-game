@@ -20,6 +20,8 @@ function loadRoomRoom() {
     window: { addEventListener() {} }
   };
   vm.createContext(context);
+  context.navigator = { languages: ['ru-RU'] };
+  vm.runInContext(fs.readFileSync(new URL('../i18n.js', import.meta.url), 'utf8'), context, { filename: 'i18n.js' });
   vm.runInContext(source, context, { filename: 'app.js' });
   return context.window.RoomRoom;
 }

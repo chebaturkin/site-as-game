@@ -9,7 +9,7 @@ BASE_URL = f"http://127.0.0.1:{os.environ.get('TEST_PORT', '4175')}"
 def test_route_diagnostics_and_progress():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
-        page = browser.new_page()
+        page = browser.new_page(locale='ru-RU', )
         page.goto(f"{BASE_URL}/")
         page.wait_for_load_state("networkidle")
         result = page.evaluate(

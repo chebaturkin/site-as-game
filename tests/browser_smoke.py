@@ -91,9 +91,9 @@ def exercise(page, viewport):
 def main():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
-        desktop = browser.new_page(viewport={"width": 1440, "height": 1000})
+        desktop = browser.new_page(locale='ru-RU', viewport={"width": 1440, "height": 1000})
         exercise(desktop, {"width": 1440, "height": 1000})
-        mobile = browser.new_page(viewport={"width": 390, "height": 844})
+        mobile = browser.new_page(locale='ru-RU', viewport={"width": 390, "height": 844})
         mobile.goto(f"{BASE_URL}/#/edit", wait_until="networkidle")
         assert mobile.evaluate("() => document.documentElement.scrollWidth <= window.innerWidth")
         assert mobile.locator("#welcomeTitle").inner_text() == "история, в которую\nможно войти."

@@ -1,91 +1,97 @@
+**english** · [русский](README.ru.md)
+
 # room room
 
-маленькие сайты, по которым можно гулять.
+small sites you can walk through.
 
-room room помогает собрать историю, экскурсию или квест из комнат. в каждой свой текст, картинка и двери. посетитель выбирает, куда идти, находит предметы и открывает новые переходы. готовый маршрут можно скачать и разместить на своём сайте.
+room room builds a story, tour or quest from rooms. each room has its own text, picture and doors. visitors choose where to go, find items and unlock new paths. download the finished route and host it on your own site.
 
-[открыть редактор](https://chebaturkin.github.io/site-as-game/) · [попробовать ночной маршрут](https://chebaturkin.github.io/site-as-game/#/play/n1)
+[open the editor](https://chebaturkin.github.io/site-as-game/?lang=en) · [try the night walk](https://chebaturkin.github.io/site-as-game/?lang=en#/play/n1)
 
-![редактор room room: комнаты, карта переходов, свойства и живой предпросмотр](docs/screenshots/editor.png)
+![room room editor with a room list, route map, properties and live preview](docs/screenshots/en/editor.png)
 
-## что можно собрать
+## what you can make
 
-- короткую историю с выбором пути;
-- экскурсию по выставке, коллекции или нескольким местам;
-- квест с записками, ключами и закрытыми дверями.
+- a short story with a choice of paths;
+- a tour of an exhibition, collection or a few places;
+- a quest with notes, keys and locked doors.
 
-начните с ночной прогулки, музейного тура или квеста из заметок. в шаблонах уже есть текст, переходы и иллюстрации. всё можно изменить под свою историю.
+start with a night walk, museum tour or paper trail. the templates include text, doors and illustrations. change them to tell your own story.
 
-## что увидит посетитель
+## what visitors see
 
-у каждой комнаты своя страница. под текстом видны двери и условия перехода, а сбоку отмечается прогресс.
+each room opens as its own scene. doors and their conditions appear below the text, with progress alongside.
 
 <details>
-<summary>прохождение ночного маршрута</summary>
+<summary>walking the night route</summary>
 
-![ночной маршрут: иллюстрация комнаты, текст истории и двери для продолжения](docs/screenshots/play.png)
+![night walk with an illustration, story text and doors to continue](docs/screenshots/en/play.png)
 
 </details>
 
-## как собрать свой маршрут
+## build a route
 
-1. выберите шаблон и назовите маршрут.
-2. напишите текст комнат. предпросмотр обновляется, пока вы редактируете.
-3. оставьте встроенные иллюстрации или загрузите свои картинки: jpg, png, webp до 8 мб.
-4. соедините комнаты дверями. для квеста добавьте условия, например найденный ключ.
-5. нажмите `играть` или `войти в комнату`, чтобы проверить прохождение.
-6. нажмите `скачать сайт`. редактор соберёт автономный zip с текстом, картинками и переходами.
+1. choose a template and name the route.
+2. write the room text. the preview updates as you type.
+3. keep the illustrations or upload jpg, png or webp images up to 8 mb.
+4. connect rooms with doors. add conditions for a quest, such as finding a key.
+5. choose **play** or **enter room** to test the route.
+6. choose **download site** to get an independent zip with text, images and doors.
 
-в маршруте от 3 до 7 комнат, в каждой до 3 дверей. перед скачиванием редактор проверяет названия и переходы. ошибки нужно исправить, а замечания помогут найти недостижимую комнату или условие, которое нигде не используется.
+a route has 3 to 7 rooms, with up to 3 doors per room. the editor checks names and connections before export. errors need fixing; notes help you spot unreachable rooms or unused conditions.
 
-на телефоне комнаты, карта и свойства открываются через вкладки.
+on a phone, tabs open the rooms, map and properties.
 
 <details>
-<summary>редактор на телефоне</summary>
+<summary>the mobile editor</summary>
 
-<img src="docs/screenshots/mobile.png" alt="room room на телефоне: выбор шаблона и список комнат" width="360" />
+<img src="docs/screenshots/en/mobile.png" alt="room room on a phone, with templates and a room list" width="360">
 
 </details>
 
-## сохранение и публикация
+## save and publish
 
-черновик и прогресс сохраняются в `localStorage` текущего браузера. кнопки `сохранить json` и `открыть json` позволяют перенести проект на другое устройство. если очистить данные браузера, локальное сохранение исчезнет, поэтому готовый черновик лучше скачать отдельно.
+the draft and play progress stay in this browser’s `localStorage`. **save json** and **open json** move a project between devices. clearing browser data removes the local copy, so download a separate backup of work you want to keep.
 
-в zip входят `index.html`, `styles.css`, `play.js`, `project.json` и папка `assets` с изображениями. распакуйте архив и откройте `index.html`: маршрут работает с диска, без сервера. для публикации загрузите содержимое архива на статический хостинг, например github pages.
+the zip contains `index.html`, `styles.css`, `play.js`, `project.json` and an `assets` folder. unzip it and open `index.html`. the route works from disk without a server. publish it by uploading the archive contents to a static host such as github pages.
 
-## запуск локально
+## language
 
-откройте `index.html` в браузере или запустите сервер из корня проекта:
+the header’s **ru / en** control changes the editor in place. a valid `?lang=ru` or `?lang=en` takes priority over a saved choice, then the first supported browser language, then english. edits, route progress and url parameters stay in place. fresh, untouched templates follow the selected language. after an edit, import or reload, your story stays as written. exported site controls use the selected language.
 
-```bash
+## run locally
+
+open `index.html` in a browser, or start a server in the project folder:
+
+```sh
 python3 -m http.server 4173
 ```
 
-затем откройте [локальный редактор](http://localhost:4173).
+then [open the local editor](http://localhost:4173).
 
-## разработка
+## development
 
-редактор написан на html, css и обычном javascript. сборка и установка зависимостей для запуска не нужны. данные проекта не отправляются на сервер.
+the editor uses html, css and plain javascript. no build or dependency installation is needed to run it. project data is not sent to a server.
 
-проверки модели и безопасности экспорта:
-
-```bash
+```sh
 node --check app.js
+node --test tests/i18n.test.cjs
 node tests/route_model_test.mjs
 node tests/export_security_test.mjs
 ```
 
-для браузерных проверок нужен python с playwright и установленным chromium. при работающем локальном сервере:
+browser checks need python, playwright and chromium. with the local server running:
 
-```bash
+```sh
 python3 tests/browser_smoke.py
 python3 tests/preview_export_test.py
 python3 tests/map_layout_test.py
 TEST_PORT=4173 python3 tests/route_model_test.py
+I18N_URL=http://127.0.0.1:4173 python3 tests/i18n_browser.py
 ```
 
-порт можно изменить через `TEST_PORT`. тест предпросмотра также скачивает архив и проверяет, что маршрут с иллюстрацией и загруженной картинкой работает с диска.
+change `TEST_PORT` to use a different port. the preview check downloads a route and verifies that illustrations and uploaded images work from disk.
 
-workflow в `.github/workflows/` публикует редактор на github pages после push в `master`. источник публикации в настройках репозитория: github actions.
+the workflow in `.github/workflows/` publishes the editor on github pages after a push to `master`. choose github actions as the pages source in the repository settings.
 
-это небольшой браузерный редактор. совместной работы и синхронизации между устройствами пока нет.
+this is a small browser editor. shared editing and cross-device sync are not available.

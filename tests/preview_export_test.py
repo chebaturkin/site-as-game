@@ -11,7 +11,7 @@ BASE_URL = f"http://127.0.0.1:{os.environ.get('TEST_PORT', '4173')}"
 def main():
     with sync_playwright() as p, tempfile.TemporaryDirectory() as temporary:
         browser = p.chromium.launch(headless=True)
-        page = browser.new_page(viewport={"width": 1440, "height": 1000})
+        page = browser.new_page(locale='ru-RU', viewport={"width": 1440, "height": 1000})
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(BASE_URL, wait_until="networkidle")
@@ -44,7 +44,7 @@ def main():
             archive.extractall(temporary)
 
         # The downloaded story must run from disk without the editor or a server.
-        exported = browser.new_page()
+        exported = browser.new_page(locale='ru-RU', )
         exported.on("pageerror", lambda error: errors.append(str(error)))
         exported.goto((Path(temporary) / "index.html").as_uri(), wait_until="load")
         assert exported.locator("h1").inner_text() == "комната для проверки"

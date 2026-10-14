@@ -379,3 +379,12 @@ h1, h2, h3, p, ol { margin: 0; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .template-card:hover { transform: none; }
 }
+
+/* The language control uses the header ink and rhythm. */
+.language-control { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 1px; font: inherit; font-size: 11px; line-height: 1; white-space: nowrap; }
+.language-control button { min-width: 27px; min-height: 36px; padding: 8px 3px; border: 0; border-radius: 0; color: inherit; background: transparent; font: inherit; opacity: .56; text-underline-offset: 5px; }
+.language-control button[aria-pressed="true"] { opacity: 1; text-decoration: underline; text-decoration-thickness: 1px; }
+.language-control button:hover { opacity: 1; }
+.language-control > span { opacity: .28; }
+.language-control { color: var(--muted); font-family: var(--mono); }
+@media (max-width: 600px) { .topbar { position: relative; } .top-actions > .language-control { position: absolute; top: 25px; right: 16px; } }

@@ -9,7 +9,7 @@ BASE_URL = f"http://127.0.0.1:{os.environ.get('TEST_PORT', '4173')}"
 def main():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        page = browser.new_page(viewport={"width": 1440, "height": 1000})
+        page = browser.new_page(locale='ru-RU', viewport={"width": 1440, "height": 1000})
         page.goto(BASE_URL, wait_until="networkidle")
         pairs = [("n1", "n2"), ("n1", "n3"), ("n2", "n3")]
         for source, target in pairs:

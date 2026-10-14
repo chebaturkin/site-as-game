@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>room room · истории из комнат</title>
-  <meta name="description" content="соберите историю, экскурсию или небольшой квест из комнат. добавьте текст и двери, пройдите маршрут и скачайте готовый сайт." />
+  <title data-i18n="m156">room room · stories made of rooms</title>
+  <meta name="description" content="build a story, tour or small quest from rooms. add text and doors, walk the route and download your site." data-i18n-content="m157" />
   <meta name="theme-color" content="#f5f3ea" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
@@ -55,187 +55,188 @@
     </defs>
   </svg>
   <div class="app-shell" id="appShell">
-    <a class="skip-link" href="#mainContent">перейти к редактору</a>
+    <a class="skip-link" href="#mainContent"><span data-i18n="m158">skip to editor</span></a>
     <header class="topbar">
       <div class="brand-lockup" aria-label="room room">
         <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M7 37V13h24v38H7V37Zm26-10h24v24H33"/><path d="M15 45V22h10v23M40 45V34h10v11M25 33h15m-5-5 5 5-5 5"/><circle cx="21" cy="34" r="1.3"/></svg></span>
-        <span class="brand-name">room room<small>истории из комнат</small></span>
+        <span class="brand-name">room room<small><span data-i18n="m159">stories made of rooms</span></small></span>
       </div>
       <div class="project-heading">
-        <label class="project-label" for="projectTitle">ваш маршрут</label>
-        <input id="projectTitle" class="project-title-input" type="text" value="ночной маршрут" autocomplete="off" aria-label="название маршрута" />
+        <label class="project-label" for="projectTitle"><span data-i18n="m160">your route</span></label>
+        <input id="projectTitle" class="project-title-input" type="text" value="ночной маршрут" autocomplete="off" aria-label="route name" data-i18n-aria-label="m161" />
       </div>
-      <div class="top-actions">
-        <div class="mode-switch" role="group" aria-label="режим работы">
-          <button class="mode-button is-active" data-mode="edit" type="button">редактор</button>
-          <button class="mode-button" data-mode="play" type="button"><span aria-hidden="true">▷</span> играть</button>
+      <div class="top-actions"><div class="language-control" role="group" aria-label="language"><button type="button" data-locale="ru" lang="ru" aria-label="русский" aria-pressed="false">ru</button><span aria-hidden="true">/</span><button type="button" data-locale="en" lang="en" aria-label="english" aria-pressed="true">en</button></div>
+        <div class="mode-switch" role="group" aria-label="work mode" data-i18n-aria-label="m162">
+          <button class="mode-button is-active" data-mode="edit" type="button"><span data-i18n="m163">editor</span></button>
+          <button class="mode-button" data-mode="play" type="button"><span aria-hidden="true">▷</span> <span data-i18n="m164">play</span></button>
         </div>
-        <button class="quiet-button" id="resetProgress" type="button">сбросить прогресс</button>
-        <button class="export-button" id="exportZip" type="button"><span aria-hidden="true">↓</span> скачать сайт</button>
+        <button class="quiet-button" id="resetProgress" type="button"><span data-i18n="m165">reset progress</span></button>
+        <button class="export-button" id="exportZip" type="button"><span aria-hidden="true">↓</span> <span data-i18n="m166">download site</span></button>
       </div>
     </header>
 
     <main id="mainContent" tabindex="-1">
       <section class="welcome-strip" aria-labelledby="welcomeTitle">
-        <div class="welcome-copy"><span class="eyebrow">маленький сайт с собственной историей</span><h1 id="welcomeTitle">история, в которую<br />можно войти.</h1></div>
-        <div class="welcome-aside"><p class="welcome-note">соберите квест, экскурсию или прогулку из комнат. в каждой свой текст, картинка и двери, за которыми история продолжается.</p><button id="tryRoute" class="route-link" type="button">пройти маршрут <span aria-hidden="true">↗</span></button></div>
+        <div class="welcome-copy"><span class="eyebrow"><span data-i18n="m167">a small site with a story of its own</span></span><h1 id="welcomeTitle"><span data-i18n="m168">a story you</span><br /><span data-i18n="m169">can walk into.</span></h1></div>
+        <div class="welcome-aside"><p class="welcome-note"><span data-i18n="m170">build a quest, tour or walk from rooms. each has its own text, picture and doors where the story continues.</span></p><button id="tryRoute" class="route-link" type="button"><span data-i18n="m171">walk the route</span> <span aria-hidden="true">↗</span></button></div>
       </section>
 
-      <section class="project-toolbar" aria-label="файл проекта и история изменений">
+      <section class="project-toolbar" aria-label="project file and change history" data-i18n-aria-label="m172">
         <div class="project-toolbar-actions">
-          <button class="text-button tool-button" id="newProject" type="button">новый маршрут</button>
-          <button class="text-button tool-button" id="openProject" type="button">открыть json</button>
+          <button class="text-button tool-button" id="newProject" type="button"><span data-i18n="m173">new route</span></button>
+          <button class="text-button tool-button" id="openProject" type="button"><span data-i18n="m174">open json</span></button>
           <input id="projectFile" class="visually-hidden" type="file" accept="application/json,.json" />
-          <button class="text-button tool-button" id="saveJson" type="button">сохранить json</button>
+          <button class="text-button tool-button" id="saveJson" type="button"><span data-i18n="m175">save json</span></button>
           <span class="toolbar-divider" aria-hidden="true"></span>
-          <button class="text-button tool-button" id="undoAction" type="button" disabled>отменить</button>
-          <button class="text-button tool-button" id="redoAction" type="button" disabled>повторить</button>
+          <button class="text-button tool-button" id="undoAction" type="button" disabled><span data-i18n="m176">undo</span></button>
+          <button class="text-button tool-button" id="redoAction" type="button" disabled><span data-i18n="m177">try again</span></button>
         </div>
         <div class="project-toolbar-status" aria-live="polite">
-          <span id="saveStatus">сохранено</span>
+          <span id="saveStatus"><span data-i18n="m096">saved</span></span>
           <span class="health-dot" aria-hidden="true"></span>
-          <span id="projectHealth" data-state="ok" title="">маршрут готов</span>
-          <span class="project-metrics" id="projectMetrics">3 комнаты · 4 двери · 2 условия</span>
+          <span id="projectHealth" data-state="ok" title=""><span data-i18n="m070">route ready</span></span>
+          <span class="project-metrics" id="projectMetrics"><span data-i18n="m178">3 rooms · 4 doors · 2 conditions</span></span>
         </div>
       </section>
 
       <section class="template-strip" aria-labelledby="templatesTitle">
         <div class="section-caption">
-            <h2 id="templatesTitle">с чего начнём?</h2><span>выберите основу и расскажите свою историю</span>
+            <h2 id="templatesTitle"><span data-i18n="m179">where shall we start?</span></h2><span><span data-i18n="m180">choose a starting point and tell your story</span></span>
         </div>
         <div class="template-grid" id="templateGrid">
           <button class="template-card is-selected" data-template="night" type="button">
             <svg class="template-art" viewBox="0 0 640 320" aria-hidden="true" focusable="false"><use href="#art-night"/></svg>
-            <span class="template-copy"><small>01 · прогулка</small><strong>ночной маршрут</strong><span>свет в окнах и город после дождя.</span></span><span class="template-check" aria-hidden="true">↗</span>
+            <span class="template-copy"><small><span data-i18n="m181">01 · walk</span></small><strong><span data-i18n="m145">night walk</span></strong><span><span data-i18n="m182">lit windows and the city after rain.</span></span></span><span class="template-check" aria-hidden="true">↗</span>
           </button>
           <button class="template-card" data-template="museum" type="button">
             <svg class="template-art" viewBox="0 0 640 320" aria-hidden="true" focusable="false"><use href="#art-museum"/></svg>
-            <span class="template-copy"><small>02 · экскурсия</small><strong>музейный тур</strong><span>маленькие вещи с большой историей.</span></span><span class="template-check" aria-hidden="true">↗</span>
+            <span class="template-copy"><small><span data-i18n="m183">02 · tour</span></small><strong><span data-i18n="m131">museum tour</span></strong><span><span data-i18n="m184">small things with a long story.</span></span></span><span class="template-check" aria-hidden="true">↗</span>
           </button>
           <button class="template-card" data-template="notes" type="button">
             <svg class="template-art" viewBox="0 0 640 320" aria-hidden="true" focusable="false"><use href="#art-notes"/></svg>
-            <span class="template-copy"><small>03 · квест</small><strong>квест из заметок</strong><span>конверт, несколько следов и один ключ.</span></span><span class="template-check" aria-hidden="true">↗</span>
+            <span class="template-copy"><small><span data-i18n="m185">03 · quest</span></small><strong><span data-i18n="m116">paper trail</span></strong><span><span data-i18n="m186">an envelope, a few clues and one key.</span></span></span><span class="template-check" aria-hidden="true">↗</span>
           </button>
         </div>
       </section>
 
-      <div class="mobile-tabs" role="tablist" aria-label="области редактора">
-        <button id="roomsTab" class="mobile-tab is-active" data-panel="rooms" role="tab" aria-controls="roomsPanel" aria-selected="true" type="button">комнаты</button>
-        <button id="mapTab" class="mobile-tab" data-panel="map" role="tab" aria-controls="mapPanel" aria-selected="false" type="button">карта</button>
-        <button id="propertiesTab" class="mobile-tab" data-panel="properties" role="tab" aria-controls="propertiesPanel" aria-selected="false" type="button">свойства</button>
+      <div class="mobile-tabs" role="tablist" aria-label="editor panels" data-i18n-aria-label="m187">
+        <button id="roomsTab" class="mobile-tab is-active" data-panel="rooms" role="tab" aria-controls="roomsPanel" aria-selected="true" type="button"><span data-i18n="m060">rooms</span></button>
+        <button id="mapTab" class="mobile-tab" data-panel="map" role="tab" aria-controls="mapPanel" aria-selected="false" type="button"><span data-i18n="m188">map</span></button>
+        <button id="propertiesTab" class="mobile-tab" data-panel="properties" role="tab" aria-controls="propertiesPanel" aria-selected="false" type="button"><span data-i18n="m189">properties</span></button>
       </div>
 
-      <section class="editor-desk" id="editorView" aria-label="редактор маршрута">
+      <section class="editor-desk" id="editorView" aria-label="route editor" data-i18n-aria-label="m190">
         <aside id="roomsPanel" class="room-index desk-panel is-mobile-active" data-panel="rooms" role="tabpanel" aria-labelledby="roomsTab" tabindex="-1">
           <div class="panel-heading">
-            <div><h2>комнаты</h2></div>
-            <span class="counter" id="roomCount">3 комнаты</span>
+            <div><h2><span data-i18n="m060">rooms</span></h2></div>
+            <span class="counter" id="roomCount"><span data-i18n="m191">3 rooms</span></span>
           </div>
-          <p class="panel-intro">выберите комнату, чтобы рассказать, что происходит внутри.</p>
+          <p class="panel-intro"><span data-i18n="m192">choose a room and describe what happens inside.</span></p>
           <ol class="room-list" id="roomList"></ol>
-          <button class="add-room-button" id="addRoom" type="button"><span aria-hidden="true">＋</span> добавить комнату</button>
-          <div class="index-note"><span class="save-dot" aria-hidden="true"></span><span>сохраняется в вашем браузере</span></div>
+          <button class="add-room-button" id="addRoom" type="button"><span aria-hidden="true">＋</span> <span data-i18n="m193">add room</span></button>
+          <div class="index-note"><span class="save-dot" aria-hidden="true"></span><span><span data-i18n="m194">saved in your browser</span></span></div>
         </aside>
 
         <section id="mapPanel" class="map-panel desk-panel" data-panel="map" role="tabpanel" aria-labelledby="mapTab" tabindex="-1">
           <div class="panel-heading map-heading">
-            <div><h2 id="mapTitle">карта маршрута</h2></div>
-            <div class="map-legend"><span class="legend-line" aria-hidden="true"></span> дверь <span class="legend-dot" aria-hidden="true"></span> старт</div>
+            <div><h2 id="mapTitle"><span data-i18n="m195">route map</span></h2></div>
+            <div class="map-legend"><span class="legend-line" aria-hidden="true"></span> <span data-i18n="m069">door</span> <span class="legend-dot" aria-hidden="true"></span> <span data-i18n="m196">start</span></div>
           </div>
           <div class="map-board" id="mapBoard">
             <svg class="map-svg" id="mapSvg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="mapTitle mapDescription">
-              <desc id="mapDescription">схема комнат и переходов проекта</desc>
+              <desc id="mapDescription"><span data-i18n="m197">map of project rooms and doors</span></desc>
               <defs><marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" /></marker></defs>
               <g id="mapGrid" aria-hidden="true"></g>
               <g id="mapEdges"></g>
               <g id="mapNodes"></g>
             </svg>
-            <div class="map-empty" id="mapEmpty" hidden>добавьте ещё комнату, чтобы увидеть маршрут.</div>
-            <span class="map-board-note">перетаскивайте комнаты · двигайте стрелками на клавиатуре</span>
+            <div class="map-empty" id="mapEmpty" hidden><span data-i18n="m198">add another room to see the route.</span></div>
+            <span class="map-board-note"><span data-i18n="m199">drag rooms · move with the arrow keys</span></span>
           </div>
           <article class="room-preview" aria-labelledby="previewTitle">
             <div class="preview-image" id="previewImage" aria-hidden="true"></div>
-            <div class="preview-copy"><span class="eyebrow">так выглядит выбранная комната</span><h3 id="previewTitle"></h3><p id="previewBody"></p><button id="previewPlay" class="route-link" type="button">войти в комнату <span aria-hidden="true">↗</span></button></div>
+            <div class="preview-copy"><span class="eyebrow"><span data-i18n="m200">this is the selected room</span></span><h3 id="previewTitle"></h3><p id="previewBody"></p><button id="previewPlay" class="route-link" type="button"><span data-i18n="m201">enter room</span> <span aria-hidden="true">↗</span></button></div>
           </article>
           <div class="map-fallback" aria-live="polite">
-            <span class="map-fallback-title">список маршрута</span>
+            <span class="map-fallback-title"><span data-i18n="m202">route list</span></span>
             <ol id="mapFallbackList"></ol>
           </div>
         </section>
 
         <aside id="propertiesPanel" class="inspector desk-panel" data-panel="properties" role="tabpanel" aria-labelledby="propertiesTab" tabindex="-1">
           <div class="panel-heading">
-            <div><h2 id="propertiesTitle">комната <span class="panel-index" id="inspectorRoomNo" aria-hidden="true">01</span></h2></div>
+            <div><h2 id="propertiesTitle"><span data-i18n="m022">room</span> <span class="panel-index" id="inspectorRoomNo" aria-hidden="true">01</span></h2></div>
             <div class="inspector-actions">
-              <button class="text-button" id="makeStart" type="button">сделать стартом</button>
-              <button class="text-button" id="duplicateRoom" type="button">дублировать</button>
-              <button class="text-button" id="playFromRoom" type="button">▷ проверить</button>
-              <button class="icon-button" id="deleteRoom" type="button" aria-label="удалить текущую комнату" title="удалить комнату">×</button>
+              <button class="text-button" id="makeStart" type="button"><span data-i18n="m203">make start</span></button>
+              <button class="text-button" id="duplicateRoom" type="button"><span data-i18n="m204">duplicate</span></button>
+              <button class="text-button" id="playFromRoom" type="button"><span data-i18n="m205">▷ test</span></button>
+              <button class="icon-button" id="deleteRoom" type="button" aria-label="delete current room" data-i18n-aria-label="m206" title="delete room" data-i18n-title="m207">×</button>
             </div>
           </div>
           <div class="inspector-scroll">
             <div id="validationSummary" class="validation-summary" role="status" aria-live="polite"></div>
             <div class="field-group">
-              <label class="field-label" for="roomTitle">название</label>
+              <label class="field-label" for="roomTitle"><span data-i18n="m208">name</span></label>
               <input class="text-input" id="roomTitle" type="text" autocomplete="off" />
             </div>
             <div class="field-group">
-              <label class="field-label" for="roomBody">описание</label>
+              <label class="field-label" for="roomBody"><span data-i18n="m209">description</span></label>
               <textarea class="text-input textarea" id="roomBody" rows="5"></textarea>
-              <span class="field-hint">что увидит и почувствует посетитель?</span>
+              <span class="field-hint"><span data-i18n="m210">what will your visitor see and feel?</span></span>
             </div>
             <div class="field-group">
-              <label class="field-label" for="roomImage">изображение</label>
-              <label class="file-drop" for="roomImage"><span class="file-drop-icon" aria-hidden="true">＋</span><span><strong>добавить свою картинку</strong><small>jpg, png, webp · до 8 мб</small></span></label>
+              <label class="field-label" for="roomImage"><span data-i18n="m211">image</span></label>
+              <label class="file-drop" for="roomImage"><span class="file-drop-icon" aria-hidden="true">＋</span><span><strong><span data-i18n="m212">add your own image</span></strong><small><span data-i18n="m213">jpg, png, webp · up to 8 mb</span></small></span></label>
               <input id="roomImage" class="visually-hidden" type="file" accept="image/jpeg,image/png,image/webp" />
-              <div class="image-meta" id="imageMeta" hidden><span id="imageName"></span><button type="button" id="removeImage">убрать</button></div>
-              <p class="field-hint image-hint">если не загрузить картинку, останется иллюстрация шаблона.</p>
-              <label class="field-label" for="roomAlt">описание картинки</label>
-              <input class="text-input" id="roomAlt" type="text" placeholder="что изображено?" autocomplete="off" />
+              <div class="image-meta" id="imageMeta" hidden><span id="imageName"></span><button type="button" id="removeImage"><span data-i18n="m214">remove</span></button></div>
+              <p class="field-hint image-hint"><span data-i18n="m215">without an uploaded picture, the template illustration stays in place.</span></p>
+              <label class="field-label" for="roomAlt"><span data-i18n="m216">image description</span></label>
+              <input class="text-input" id="roomAlt" type="text" placeholder="what is in the picture?" data-i18n-placeholder="m217" autocomplete="off" />
             </div>
             <div class="field-group flag-section">
-              <div class="field-label-row"><label class="field-label">условия</label><button class="text-button" id="addFlag" type="button">+ добавить условие</button></div>
+              <div class="field-label-row"><label class="field-label"><span data-i18n="m065">conditions</span></label><button class="text-button" id="addFlag" type="button"><span data-i18n="m218">+ add condition</span></button></div>
               <div id="flagList" class="flag-list"></div>
-              <p class="field-hint">условие открывает дверь или отмечает найденный предмет.</p>
+              <p class="field-hint"><span data-i18n="m219">a condition opens a door or marks a found item.</span></p>
             </div>
             <div class="field-group transitions-section">
-              <div class="field-label-row"><label class="field-label">двери <span>до 3</span></label></div>
+              <div class="field-label-row"><label class="field-label"><span data-i18n="m068">doors</span> <span><span data-i18n="m220">up to 3</span></span></label></div>
               <div id="transitionList" class="transition-list"></div>
-              <button class="add-transition text-button" id="addTransition" type="button">+ добавить дверь</button>
+              <button class="add-transition text-button" id="addTransition" type="button"><span data-i18n="m221">+ add door</span></button>
             </div>
           </div>
         </aside>
       </section>
 
-      <section class="play-view" id="playView" hidden aria-label="проверка маршрута">
+      <section class="play-view" id="playView" hidden aria-label="route check" data-i18n-aria-label="m222">
         <div class="play-toolbar">
-          <button class="back-map text-button" id="backToMap" type="button">← вернуться к карте</button>
-          <span class="play-mode-label"><span class="play-dot" aria-hidden="true"></span> проверка · <span id="playStatus">комната 01</span></span>
-          <button class="text-button" id="playReset" type="button">начать заново</button>
+          <button class="back-map text-button" id="backToMap" type="button"><span data-i18n="m223">← back to map</span></button>
+          <span class="play-mode-label"><span class="play-dot" aria-hidden="true"></span> <span data-i18n="m224">testing ·</span> <span id="playStatus"><span data-i18n="m225">room 01</span></span></span>
+          <button class="text-button" id="playReset" type="button"><span data-i18n="m226">start again</span></button>
         </div>
         <div class="play-layout">
-          <aside class="play-index" aria-label="прогресс игры"><span class="eyebrow">ваша прогулка</span><strong id="playProgress">01 из 03</strong><div class="play-progress-line"><span id="playProgressBar"></span></div><ol id="playRoomList"></ol><p class="play-index-note">каждая дверь<br />продолжает историю.</p></aside>
+          <aside class="play-index" aria-label="game progress" data-i18n-aria-label="m227"><span class="eyebrow"><span data-i18n="m228">your walk</span></span><strong id="playProgress"><span data-i18n="m229">01 of 03</span></strong><div class="play-progress-line"><span id="playProgressBar"></span></div><ol id="playRoomList"></ol><p class="play-index-note"><span data-i18n="m230">every door</span><br /><span data-i18n="m231">continues the story.</span></p></aside>
         <article class="room-scene" id="roomScene" tabindex="-1" aria-labelledby="sceneTitle">
             <div class="scene-paper" id="scenePaper">
-              <div class="scene-meta"><span>комната <span id="sceneRoomNo">01</span></span><span id="sceneCoords">x 24° · y 61°</span></div>
+              <div class="scene-meta"><span><span data-i18n="m022">room</span> <span id="sceneRoomNo">01</span></span><span id="sceneCoords">x 24° · y 61°</span></div>
               <div class="scene-image" id="sceneImage"></div>
-            <div class="scene-copy"><h2 id="sceneTitle">переулок после дождя</h2><p id="sceneBody"></p></div>
+            <div class="scene-copy"><h2 id="sceneTitle"><span data-i18n="m142">alley after the rain</span></h2><p id="sceneBody"></p></div>
               <div class="scene-mark" aria-hidden="true">room room</div>
             </div>
             <div class="scene-actions" id="sceneActions"></div>
-            <p class="scene-hint" id="sceneHint">выберите действие. прогресс сохраняется в этом браузере.</p>
+            <p class="scene-hint" id="sceneHint"><span data-i18n="m232">choose an action. progress stays in this browser.</span></p>
             <div class="completion-panel" id="completionPanel" hidden role="status" aria-live="polite">
-              <strong>маршрут пройден.</strong>
-              <button class="text-button" id="completionReset" type="button">начать заново</button>
-              <button class="text-button" id="completionMap" type="button">вернуться к карте</button>
+              <strong><span data-i18n="m233">route complete.</span></strong>
+              <button class="text-button" id="completionReset" type="button"><span data-i18n="m226">start again</span></button>
+              <button class="text-button" id="completionMap" type="button"><span data-i18n="m234">back to map</span></button>
             </div>
           </article>
         </div>
       </section>
     </main>
-    <footer class="app-footer"><span>room room · маленькие миры, которые можно пройти</span><a href="https://github.com/chebaturkin/site-as-game" target="_blank" rel="noopener noreferrer">проект на github ↗</a></footer>
+    <footer class="app-footer"><span><span data-i18n="m235">room room · small worlds you can walk through</span></span><a href="https://github.com/chebaturkin/site-as-game" target="_blank" rel="noopener noreferrer"><span data-i18n="m236">project on github ↗</span></a></footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </div>
+  <script src="i18n.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

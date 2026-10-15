@@ -16,7 +16,7 @@ room room builds a story, tour or quest from rooms. each room has its own text, 
 - a tour of an exhibition, collection or a few places;
 - a quest with notes, keys and locked doors.
 
-start with a night walk, museum tour or paper trail. the templates include text, doors and illustrations. change them to tell your own story.
+start with a night walk, museum tour or paper trail. the templates include text, doors and illustrations. change them to tell your own story. the map shows how rooms connect; drag a room or use the arrow keys to arrange it. undo and redo keep route edits reversible.
 
 ## what visitors see
 
@@ -51,9 +51,9 @@ on a phone, tabs open the rooms, map and properties.
 
 ## save and publish
 
-the draft and play progress stay in this browser’s `localStorage`. **save json** and **open json** move a project between devices. clearing browser data removes the local copy, so download a separate backup of work you want to keep.
+the draft and play progress stay in this browser’s `localStorage`. project text and uploaded images are processed on your device and are not sent to a server. **save json** and **open json** move a project between devices. clearing browser data removes the local copy, so download a separate backup of work you want to keep.
 
-the zip contains `index.html`, `styles.css`, `play.js`, `project.json` and an `assets` folder. unzip it and open `index.html`. the route works from disk without a server. publish it by uploading the archive contents to a static host such as github pages.
+use json when you want to continue editing, and zip when you want someone to walk through the route. the zip contains `index.html`, `styles.css`, `play.js`, `project.json` and an `assets` folder. unzip it and open `index.html`. the route works from disk without a server. publish it by uploading the archive contents to a static host such as github pages.
 
 ## language
 
@@ -67,7 +67,7 @@ open `index.html` in a browser, or start a server in the project folder:
 python3 -m http.server 4173
 ```
 
-then [open the local editor](http://localhost:4173).
+then open the local editor in [english](http://localhost:4173/?lang=en) or [russian](http://localhost:4173/?lang=ru).
 
 ## development
 
@@ -94,4 +94,4 @@ change `TEST_PORT` to use a different port. the preview check downloads a route 
 
 the workflow in `.github/workflows/` publishes the editor on github pages after a push to `master`. choose github actions as the pages source in the repository settings.
 
-this is a small browser editor. shared editing and cross-device sync are not available.
+this is a small browser editor for one route at a time. it supports up to 7 rooms, 3 doors per room and 12 conditions. save different routes as separate json files. shared editing and cross-device sync are not available.
